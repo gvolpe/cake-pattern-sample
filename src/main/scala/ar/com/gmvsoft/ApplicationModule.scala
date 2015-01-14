@@ -1,11 +1,12 @@
 package ar.com.gmvsoft
 
-import ar.com.gmvsoft.repository.UserRepositoryMemory
-import ar.com.gmvsoft.service.DefaultUserService
+import ar.com.gmvsoft.repository.DefaultUserRepositoryComponent
+import ar.com.gmvsoft.service.DefaultUserServiceComponent
 
 
 object ApplicationModule {
 
-  val userService = new DefaultUserService with UserRepositoryMemory {}
+  val userServiceComponent = new DefaultUserServiceComponent with DefaultUserRepositoryComponent {}
+  val userService = userServiceComponent.userService
 
 }

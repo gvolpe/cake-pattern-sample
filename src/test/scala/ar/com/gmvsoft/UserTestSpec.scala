@@ -1,8 +1,6 @@
 package ar.com.gmvsoft
 
 import ar.com.gmvsoft.model.Model.User
-import ar.com.gmvsoft.repository.UserRepositoryMemory
-import ar.com.gmvsoft.service.DefaultUserService
 import org.specs2.mutable._
 
 object UserTestSpec extends Specification {
@@ -11,7 +9,7 @@ object UserTestSpec extends Specification {
 
     val users = List(User("pepe@gmail.com", "PepePallooza", Some(123)))
 
-    val userService = new DefaultUserService with UserRepositoryMemory {}
+    val userService = ApplicationModule.userService
 
     userService.findAll must_== users
 
